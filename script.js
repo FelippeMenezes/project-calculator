@@ -13,5 +13,3 @@ buttons.forEach((btn) => {
         clickUpSound.play();
     });
 });
-
-
