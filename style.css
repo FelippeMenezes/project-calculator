@@ -1,6 +1,7 @@
-body {
+* {
     background-color: #292929;
     color: #E6E6E6;
+    font-size: 40px;
 }
 
 .container {
@@ -24,6 +25,8 @@ body {
 }
 
 #input-display {
+    background-color: #E6E6E6;
+    color: #292929;
     width: 90%;
     height: 50px;
     padding: 5px;
@@ -41,6 +44,8 @@ body {
 }
 
 .memory-button {
+    background-color: LightGray;
+    color: #292929;
     width: calc(25% - 6px);
     height: 50px;
     font-size: 32px;
@@ -49,5 +54,26 @@ body {
 .button {
     width: calc(25% - 6px);
     height: 75px;
-    font-size: 40px;
+}
+
+.operate-button {
+    width: calc(25% - 6px);
+    height: 75px;
+    background-color: orange;
+    font-weight: bold;
+}
+
+.result-button {
+    width: calc(25% - 6px);
+    height: 75px;
+    background-color: orange;
+    font-weight: bold;
+}
+
+.white-button {
+    width: calc(25% - 6px);
+    height: 75px;
+    background-color: #E6E6E6;
+    color: #292929;
+    font-weight: bold;
 }
