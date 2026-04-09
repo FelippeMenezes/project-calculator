@@ -25,6 +25,7 @@
 }
 
 #input-display {
+    text-align: right;
     background-color: #E6E6E6;
     color: #292929;
     width: 90%;
@@ -40,7 +41,6 @@
     gap: 8px;
     padding: 5px;
     margin: 5px;
-
 }
 
 .memory-button {
@@ -49,11 +49,13 @@
     width: calc(25% - 6px);
     height: 50px;
     font-size: 32px;
+    border-radius: 5px;
 }
 
 .button {
     width: calc(25% - 6px);
     height: 75px;
+    border-radius: 5px;
 }
 
 .operate-button {
@@ -61,6 +63,7 @@
     height: 75px;
     background-color: orange;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 .result-button {
@@ -68,6 +71,7 @@
     height: 75px;
     background-color: orange;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 .white-button {
@@ -76,4 +80,5 @@
     background-color: #E6E6E6;
     color: #292929;
     font-weight: bold;
+    border-radius: 5px;
 }
