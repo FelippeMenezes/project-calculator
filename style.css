@@ -93,3 +93,9 @@
     font-weight: bold;
     border-radius: 5px;
 }
+
+exponent {
+    vertical-align: super;
+    font-size: smaller;
+    line-height: normal;
+}
