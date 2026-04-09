@@ -33,6 +33,11 @@
     padding: 5px;
     margin: 5px;
     border-radius: 10px;
+    caret-color: transparent;
+}
+
+#input-display::placeholder {
+    color: #292929;
 }
 
 .buttons {
