@@ -70,6 +70,10 @@ buttons.forEach((btn) => {
                 let result = firstNumber + secondNumber;
                 inputDisplay.value = result;
             }
+            if (operation === "-") {
+                let result = firstNumber - secondNumber;
+                inputDisplay.value = result;
+            }
         }
 
 
