@@ -38,7 +38,6 @@ function piButton(btnId) {
 function numbersButtons(btnId) {
     if (!isNaN(btnId)) {
         if (inputDisplay.value === "0" || inputDisplay.value === "3.1415926536" || secondNumber !== null) {
-            firstNumber = result;
             secondNumber = null;
             inputDisplay.value = btnId;
             clearBtn.textContent = "CE";
@@ -84,21 +83,18 @@ function exponecial() {
 };
 
 function squareRoot() {
-    result = Math.sqrt(firstNumber);
+    result = Math.sqrt(Number(inputDisplay.value));
     inputDisplay.value = result;
 };
 
 function percentage() {
-    result = firstNumber / 100;
+    result = Number(inputDisplay.value) / 100;
     inputDisplay.value = result;
 };
 
 function plusMinus() {
-    if (firstNumber > 0 || firstNumber < 0) {
-        firstNumber = firstNumber * -1;
-        result = firstNumber;
-        inputDisplay.value = result;
-    };
+    result = Number(inputDisplay.value) * -1;
+    inputDisplay.value = result;
 };
 
 function memoryClear() {
@@ -119,7 +115,10 @@ function memoryAdd() {
 
 function operate(btnId) {
     if (btnId === "=") {
+        if (operation === null) return;
+
         secondNumber = Number(inputDisplay.value);
+
         if (operation === "+") {
             sum();
         } else if (operation === "-") {
@@ -130,13 +129,12 @@ function operate(btnId) {
             division();
         } else if (operation === "xy") {
             exponecial();
-        };
-    } else if (operation === "√x") {
-        squareRoot();
-    } else if (operation === "%") {
-        percentage();
-    } else if (operation === "+/-") {
-        plusMinus();
+        }
+
+        firstNumber = result;
+        operation = null;
+        secondNumber = null;
+
     } else if (operation === "mc") {
         memoryClear();
     } else if (operation === "mr") {
@@ -169,6 +167,16 @@ buttons.forEach((btn) => {
 
     btn.addEventListener("click", () => {
         const btnId = btn.id;
+
+        if (btnId === "√x") {
+            return squareRoot();
+        };
+        if (btnId === "%") {
+            return percentage();
+        };
+        if (btnId === "+/-") {
+            return plusMinus();
+        };
 
         clearButton(btnId);
         piButton(btnId);
