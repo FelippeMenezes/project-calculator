@@ -14,6 +14,8 @@ let operation = null;
 let secondNumber = null;
 let result = null;
 let memory = null;
+let lastOperation = null;
+let lastSecondNumber = null;
 
 function preventKeyboardInput(event) {
     event.preventDefault();
@@ -115,6 +117,27 @@ function memoryAdd() {
 
 function operate(btnId) {
     if (btnId === "=") {
+
+        // 🔁 CASO: repetindo "="
+        if (operation === null && lastOperation !== null) {
+            if (lastOperation === "+") {
+                result = firstNumber + lastSecondNumber;
+            } else if (lastOperation === "-") {
+                result = firstNumber - lastSecondNumber;
+            } else if (lastOperation === "*") {
+                result = firstNumber * lastSecondNumber;
+            } else if (lastOperation === "÷") {
+                result = firstNumber / lastSecondNumber;
+            } else if (lastOperation === "xy") {
+                result = firstNumber ** lastSecondNumber;
+            }
+
+            inputDisplay.value = result;
+            firstNumber = result;
+            return;
+        }
+
+        // 🧠 cálculo normal
         if (operation === null) return;
 
         secondNumber = Number(inputDisplay.value);
@@ -130,6 +153,9 @@ function operate(btnId) {
         } else if (operation === "xy") {
             exponecial();
         }
+
+        lastOperation = operation;
+        lastSecondNumber = secondNumber;
 
         firstNumber = result;
         operation = null;
