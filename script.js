@@ -105,6 +105,18 @@ function memoryClear() {
     memory = 0;
 };
 
+function memoryRecall() {
+    inputDisplay.value = memory;
+};
+
+function memorySubtraction() {
+    inputDisplay.value = memory - inputDisplay.value;
+};
+
+function memoryAdd() {
+    inputDisplay.value = memory + inputDisplay.value;
+};
+
 function operate(btnId) {
     if (btnId === "=") {
         secondNumber = Number(inputDisplay.value);
@@ -127,6 +139,12 @@ function operate(btnId) {
         plusMinus();
     } else if (operation === "mc") {
         memoryClear();
+    } else if (operation === "mr") {
+        memoryRecall();
+    } else if (operation === "m-") {
+        memorySubtraction();
+    } else if (operation === "m+") {
+        memoryAdd();
     };
 };
 
