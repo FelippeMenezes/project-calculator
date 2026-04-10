@@ -17,21 +17,20 @@ function numbersButtons(btnContent) {
             inputDisplay.value = btnContent;
         } else {
             inputDisplay.value += btnContent;
-        }
-    }
+        };
+    };
 };
-
 
 function piButton(btnContent) {
     if (btnContent === "π") {
         inputDisplay.value = pi;
-    }
+    };
 };
 
 function clearButton(btn) {
     if (btn.id === "clear-btn") {
         inputDisplay.value = "";
-    }
+    };
 };
 
 function updateACButton() {
@@ -39,7 +38,7 @@ function updateACButton() {
         clearBtn.textContent = "AC";
     } else {
         clearBtn.textContent = "CE";
-    }
+    };
 };
 
 buttons.forEach((btn) => {
