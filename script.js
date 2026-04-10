@@ -7,6 +7,10 @@ const clearBtn = document.getElementById("clear-btn");
 
 const pi = "3.1415926536";
 
+let firstNumber = null;
+let operation = null;
+let secondNumber = null;
+
 function preventKeyboardInput(event) {
     event.preventDefault();
 };
@@ -53,6 +57,21 @@ buttons.forEach((btn) => {
 
     btn.addEventListener("click", () => {
         const btnContent = btn.textContent;
+
+        if ("+-÷x".includes(btnContent)) {
+            firstNumber = Number(inputDisplay.value);
+            operation = btnContent;
+            inputDisplay.value = "";
+        }
+
+        if (btnContent === "=") {
+            secondNumber = Number(inputDisplay.value);
+            if (operation === "+") {
+                let result = firstNumber + secondNumber;
+                inputDisplay.value = result;
+            }
+        }
+
 
         clearButton(btn);
         piButton(btnContent);
