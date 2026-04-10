@@ -13,6 +13,7 @@ let firstNumber = null;
 let operation = null;
 let secondNumber = null;
 let result = null;
+let memory = null;
 
 function preventKeyboardInput(event) {
     event.preventDefault();
@@ -60,45 +61,49 @@ function operationSelected(btnId) {
 function sum() {
     result = firstNumber + secondNumber;
     inputDisplay.value = result;
-}
+};
 
 function subtracion() {
     result = firstNumber - secondNumber;
     inputDisplay.value = result;
-}
+};
 
 function multiply() {
     result = firstNumber * secondNumber;
     inputDisplay.value = result;
-}
+};
 
 function division() {
     result = firstNumber / secondNumber;
     inputDisplay.value = result;
-}
+};
 
 function exponecial() {
     result = firstNumber ** secondNumber;
     inputDisplay.value = result;
-}
+};
 
 function squareRoot() {
     result = Math.sqrt(firstNumber);
     inputDisplay.value = result;
-}
+};
 
 function percentage() {
     result = firstNumber / 100;
     inputDisplay.value = result;
-}
+};
 
 function plusMinus() {
     if (firstNumber > 0 || firstNumber < 0) {
         firstNumber = firstNumber * -1;
         result = firstNumber;
         inputDisplay.value = result;
-    }
-}
+    };
+};
+
+function memoryClear() {
+    memory = 0;
+};
 
 function operate(btnId) {
     if (btnId === "=") {
@@ -120,11 +125,13 @@ function operate(btnId) {
         percentage();
     } else if (operation === "+/-") {
         plusMinus();
+    } else if (operation === "mc") {
+        memoryClear();
     };
 };
 
-function clearButton(btn) {
-    if (btn.id === "clear-btn") {
+function clearButton(btnId) {
+    if (btnId === "clear-btn") {
         inputDisplay.value = "";
         inputDisplay.placeholder = "0";
         firstNumber = null;
@@ -145,7 +152,7 @@ buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
         const btnId = btn.id;
 
-        clearButton(btn);
+        clearButton(btnId);
         piButton(btnId);
         numbersButtons(btnId);
         operationSelected(btnId);
