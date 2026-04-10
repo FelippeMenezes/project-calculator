@@ -34,6 +34,9 @@ function piButton(btnContent) {
 function clearButton(btn) {
     if (btn.id === "clear-btn") {
         inputDisplay.value = "";
+        firstNumber = null;
+        secondNumber = null;
+        operation = null;
     };
 };
 
@@ -75,6 +78,10 @@ buttons.forEach((btn) => {
                 inputDisplay.value = result;
             }
             if (operation === "x") {
+                let result = firstNumber * secondNumber;
+                inputDisplay.value = result;
+            }
+            if (operation === "÷") {
                 let result = firstNumber * secondNumber;
                 inputDisplay.value = result;
             }
