@@ -3,6 +3,7 @@ const clickUpSound = new Audio("sounds/up.wav");
 
 const buttons = document.querySelectorAll("button");
 const inputDisplay = document.getElementById("input-display");
+const clearBtn = document.getElementById("clear-btn");
 
 const pi = "3.1415926536";
 
@@ -29,12 +30,10 @@ function clearButton(btn) {
 };
 
 function updateACButton() {
-    const acButton = document.getElementById("clear-btn");
-
     if (inputDisplay.value === "" || inputDisplay.value === "0") {
-        acButton.textContent = "AC";
+        clearBtn.textContent = "AC";
     } else {
-        acButton.textContent = "CE";
+        clearBtn.textContent = "CE";
     }
 };
 
