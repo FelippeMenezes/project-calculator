@@ -7,7 +7,7 @@ const clearBtn = document.getElementById("clear-btn");
 
 const pi = "3.1415926536";
 
-const operationsArray = [ "+", "-", "÷", "x", "xy", "√x", "%", "+/-"];
+const operationsArray = [ "+", "-", "÷", "*", "xy", "√x", "%", "+/-"];
 
 let firstNumber = null;
 let operation = null;
@@ -48,7 +48,7 @@ function numbersButtons(btnId) {
     };
 };
 
-function operationOption(btnId) {
+function operationSelected(btnId) {
     if (operationsArray.includes(btnId)) {
         firstNumber = Number(inputDisplay.value);
         operation = btnId;
@@ -67,7 +67,7 @@ function operate(btnId) {
         } else if (operation === "-") {
             result = firstNumber - secondNumber;
             inputDisplay.value = result;
-        } else if (operation === "x") {
+        } else if (operation === "*") {
             result = firstNumber * secondNumber;
             inputDisplay.value = result;
         } else if (operation === "÷") {
@@ -86,7 +86,8 @@ function operate(btnId) {
     } else if (operation === "+/-") {
         if (firstNumber > 0 || firstNumber < 0) {
             firstNumber = firstNumber * -1;
-            inputDisplay.value = firstNumber;
+            result = firstNumber;
+            inputDisplay.value = result;
         }
     };
 };
@@ -117,7 +118,7 @@ buttons.forEach((btn) => {
         clearButton(btn);
         piButton(btnId);
         numbersButtons(btnId);
-        operationOption(btnId);
+        operationSelected(btnId);
         operate(btnId);
     });
 });
