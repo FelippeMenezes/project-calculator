@@ -92,6 +92,14 @@ function percentage() {
     inputDisplay.value = result;
 }
 
+function plusMinus() {
+    if (firstNumber > 0 || firstNumber < 0) {
+        firstNumber = firstNumber * -1;
+        result = firstNumber;
+        inputDisplay.value = result;
+    }
+}
+
 function operate(btnId) {
     if (btnId === "=") {
         secondNumber = Number(inputDisplay.value);
@@ -111,11 +119,7 @@ function operate(btnId) {
     } else if (operation === "%") {
         percentage();
     } else if (operation === "+/-") {
-        if (firstNumber > 0 || firstNumber < 0) {
-            firstNumber = firstNumber * -1;
-            result = firstNumber;
-            inputDisplay.value = result;
-        }
+        plusMinus();
     };
 };
 
