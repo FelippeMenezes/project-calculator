@@ -18,32 +18,48 @@ function preventKeyboardInput(event) {
     event.preventDefault();
 };
 
-function numbersButtons(btnContent) {
-    if (!isNaN(btnContent)) {
+function playMouseDownSound() {
+    clickDownSound.currentTime = 0;
+    clickDownSound.play();
+};
+
+function playMouseUpSound() {
+    clickUpSound.currentTime = 0;
+    clickUpSound.play();
+};
+
+function piButton(btnId) {
+    if (btnId === "pi") {
+        inputDisplay.value = pi;
+    };
+};
+
+function numbersButtons(btnId) {
+    if (!isNaN(btnId)) {
         if (inputDisplay.value === "0" || inputDisplay.value === "3.1415926536" || secondNumber !== null) {
             firstNumber = result;
             secondNumber = null;
-            inputDisplay.value = btnContent;
+            inputDisplay.value = btnId;
             clearBtn.textContent = "CE";
         } else {
-            inputDisplay.value += btnContent;
+            inputDisplay.value += btnId;
             clearBtn.textContent = "CE";
         };
     };
 };
 
-function operationOption(btnContent) {
-    if (operationsArray.includes(btnContent)) {
+function operationOption(btnId) {
+    if (operationsArray.includes(btnId)) {
         firstNumber = Number(inputDisplay.value);
-        operation = btnContent;
+        operation = btnId;
         inputDisplay.placeholder = firstNumber;
         inputDisplay.value = "";
     };
 
 };
 
-function operate(btnContent) {
-    if (btnContent === "=") {
+function operate(btnId) {
+    if (btnId === "=") {
         secondNumber = Number(inputDisplay.value);
         if (operation === "+") {
             result = firstNumber + secondNumber;
@@ -70,12 +86,6 @@ function operate(btnContent) {
     };
 };
 
-function piButton(btnContent) {
-    if (btnContent === "π") {
-        inputDisplay.value = pi;
-    };
-};
-
 function clearButton(btn) {
     if (btn.id === "clear-btn") {
         inputDisplay.value = "";
@@ -89,21 +99,20 @@ function clearButton(btn) {
 
 buttons.forEach((btn) => {
     btn.addEventListener("mousedown", () => {
-        clickDownSound.currentTime = 0;
-        clickDownSound.play();
+        playMouseDownSound();
     });
     btn.addEventListener("mouseup", () => {
-        clickUpSound.currentTime = 0;
-        clickUpSound.play();
+        playMouseUpSound();
     });
 
     btn.addEventListener("click", () => {
         const btnContent = btn.textContent;
+        const btnId = btn.id;
 
         clearButton(btn);
-        piButton(btnContent);
-        numbersButtons(btnContent);
-        operationOption(btnContent);
-        operate(btnContent);
+        piButton(btnId);
+        numbersButtons(btnId);
+        operationOption(btnId);
+        operate(btnId);
     });
 });
