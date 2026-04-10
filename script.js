@@ -8,7 +8,7 @@ const clearBtn = document.getElementById("clear-btn");
 const pi = "3.1415926536";
 
 function numbersButtons(btnContent) {
-    if ("0123456789".includes(btnContent)) {
+    if (!isNaN(btnContent)) {
         if (inputDisplay.value === "0" || inputDisplay.value === "3.1415926536") {
             inputDisplay.value = btnContent;
         } else {
