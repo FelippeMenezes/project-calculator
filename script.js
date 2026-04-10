@@ -59,7 +59,6 @@ buttons.forEach((btn) => {
 
         if ("+-÷x".includes(btnContent)) {
             firstNumber = Number(inputDisplay.value);
-            console.log(firstNumber);
             operation = btnContent;
             inputDisplay.placeholder = firstNumber;
             inputDisplay.value = "";
