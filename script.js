@@ -30,6 +30,34 @@ function numbersButtons(btnContent) {
     };
 };
 
+function operatiobOption(btnContent) {
+    if ("+-÷x".includes(btnContent)) {
+        firstNumber = Number(inputDisplay.value);
+        operation = btnContent;
+        inputDisplay.placeholder = firstNumber;
+        inputDisplay.value = "";
+    };
+};
+
+function operate(btnContent) {
+            if (btnContent === "=") {
+            secondNumber = Number(inputDisplay.value);
+            if (operation === "+") {
+                result = firstNumber + secondNumber;
+                inputDisplay.value = result;
+            } else if (operation === "-") {
+                result = firstNumber - secondNumber;
+                inputDisplay.value = result;
+            } else if (operation === "x") {
+                result = firstNumber * secondNumber;
+                inputDisplay.value = result;
+            } else if (operation === "÷") {
+                result = firstNumber / secondNumber;
+                inputDisplay.value = result;
+            };
+        };
+};
+
 function piButton(btnContent) {
     if (btnContent === "π") {
         inputDisplay.value = pi;
@@ -43,7 +71,7 @@ function clearButton(btn) {
         firstNumber = null;
         secondNumber = null;
         operation = null;
-        clearBtn.textContent = "AC"
+        clearBtn.textContent = "AC";
     };
 };
 
@@ -60,32 +88,10 @@ buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
         const btnContent = btn.textContent;
 
-        if ("+-÷x".includes(btnContent)) {
-            firstNumber = Number(inputDisplay.value);
-            operation = btnContent;
-            inputDisplay.placeholder = firstNumber;
-            inputDisplay.value = "";
-        }
-
-        if (btnContent === "=") {
-            secondNumber = Number(inputDisplay.value);
-            if (operation === "+") {
-                result = firstNumber + secondNumber;
-                inputDisplay.value = result;
-            } else if (operation === "-") {
-                result = firstNumber - secondNumber;
-                inputDisplay.value = result;
-            } else if (operation === "x") {
-                result = firstNumber * secondNumber;
-                inputDisplay.value = result;
-            } else if (operation === "÷") {
-                result = firstNumber / secondNumber;
-                inputDisplay.value = result;
-            }
-        }
-
         clearButton(btn);
         piButton(btnContent);
         numbersButtons(btnContent);
+        operatiobOption(btnContent);
+        operate(btnContent);
     });
 });
