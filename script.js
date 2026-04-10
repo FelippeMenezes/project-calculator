@@ -34,17 +34,10 @@ function piButton(btnContent) {
 function clearButton(btn) {
     if (btn.id === "clear-btn") {
         inputDisplay.value = "";
+        inputDisplay.placeholder = "0";
         firstNumber = null;
         secondNumber = null;
         operation = null;
-    };
-};
-
-function updateACButton() {
-    if (inputDisplay.value === "" || inputDisplay.value === "0") {
-        clearBtn.textContent = "AC";
-    } else {
-        clearBtn.textContent = "CE";
     };
 };
 
@@ -64,6 +57,7 @@ buttons.forEach((btn) => {
         if ("+-÷x".includes(btnContent)) {
             firstNumber = Number(inputDisplay.value);
             operation = btnContent;
+            inputDisplay.placeholder = firstNumber;
             inputDisplay.value = "";
         }
 
@@ -72,17 +66,14 @@ buttons.forEach((btn) => {
             if (operation === "+") {
                 let result = firstNumber + secondNumber;
                 inputDisplay.value = result;
-            }
-            if (operation === "-") {
+            } else if (operation === "-") {
                 let result = firstNumber - secondNumber;
                 inputDisplay.value = result;
-            }
-            if (operation === "x") {
+            } else if (operation === "x") {
                 let result = firstNumber * secondNumber;
                 inputDisplay.value = result;
-            }
-            if (operation === "÷") {
-                let result = firstNumber * secondNumber;
+            } else if (operation === "÷") {
+                let result = firstNumber / secondNumber;
                 inputDisplay.value = result;
             }
         }
@@ -91,6 +82,5 @@ buttons.forEach((btn) => {
         clearButton(btn);
         piButton(btnContent);
         numbersButtons(btnContent);
-        updateACButton();
     });
 });
