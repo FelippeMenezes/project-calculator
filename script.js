@@ -7,7 +7,7 @@ const clearBtn = document.getElementById("clear-btn");
 
 const pi = "3.1415926536";
 
-const operationsArray = [ "+", "-", "÷", "x", "xy", "√x", "%"];
+const operationsArray = [ "+", "-", "÷", "x", "xy", "√x", "%", "+/-"];
 
 let firstNumber = null;
 let operation = null;
@@ -83,6 +83,11 @@ function operate(btnId) {
     } else if (operation === "%") {
         result = firstNumber / 100;
         inputDisplay.value = result;
+    } else if (operation === "+/-") {
+        if (firstNumber > 0 || firstNumber < 0) {
+            firstNumber = firstNumber * -1;
+            inputDisplay.value = firstNumber;
+        }
     };
 };
 
