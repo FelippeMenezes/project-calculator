@@ -46,6 +46,7 @@ buttons.forEach((btn) => {
         clickUpSound.currentTime = 0;
         clickUpSound.play();
     });
+
     btn.addEventListener("click", () => {
         const btnContent = btn.textContent;
 
