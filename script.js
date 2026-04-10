@@ -55,34 +55,61 @@ function operationSelected(btnId) {
         inputDisplay.placeholder = firstNumber;
         inputDisplay.value = "";
     };
-
 };
+
+function sum() {
+    result = firstNumber + secondNumber;
+    inputDisplay.value = result;
+}
+
+function subtracion() {
+    result = firstNumber - secondNumber;
+    inputDisplay.value = result;
+}
+
+function multiply() {
+    result = firstNumber * secondNumber;
+    inputDisplay.value = result;
+}
+
+function division() {
+    result = firstNumber / secondNumber;
+    inputDisplay.value = result;
+}
+
+function exponecial() {
+    result = firstNumber ** secondNumber;
+    inputDisplay.value = result;
+}
+
+function squareRoot() {
+    result = Math.sqrt(firstNumber);
+    inputDisplay.value = result;
+}
+
+function percentage() {
+    result = firstNumber / 100;
+    inputDisplay.value = result;
+}
 
 function operate(btnId) {
     if (btnId === "=") {
         secondNumber = Number(inputDisplay.value);
         if (operation === "+") {
-            result = firstNumber + secondNumber;
-            inputDisplay.value = result;
+            sum();
         } else if (operation === "-") {
-            result = firstNumber - secondNumber;
-            inputDisplay.value = result;
+            subtracion();
         } else if (operation === "*") {
-            result = firstNumber * secondNumber;
-            inputDisplay.value = result;
+            multiply();
         } else if (operation === "÷") {
-            result = firstNumber / secondNumber;
-            inputDisplay.value = result;
+            division();
         } else if (operation === "xy") {
-            result = firstNumber ** secondNumber;
-            inputDisplay.value = result;
+            exponecial();
         };
     } else if (operation === "√x") {
-        result = Math.sqrt(firstNumber);
-        inputDisplay.value = result;
+        squareRoot();
     } else if (operation === "%") {
-        result = firstNumber / 100;
-        inputDisplay.value = result;
+        percentage();
     } else if (operation === "+/-") {
         if (firstNumber > 0 || firstNumber < 0) {
             firstNumber = firstNumber * -1;
@@ -112,7 +139,6 @@ buttons.forEach((btn) => {
     });
 
     btn.addEventListener("click", () => {
-        const btnContent = btn.textContent;
         const btnId = btn.id;
 
         clearButton(btn);
