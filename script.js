@@ -10,6 +10,7 @@ const pi = "3.1415926536";
 let firstNumber = null;
 let operation = null;
 let secondNumber = null;
+let result = null;
 
 function preventKeyboardInput(event) {
     event.preventDefault();
@@ -17,7 +18,9 @@ function preventKeyboardInput(event) {
 
 function numbersButtons(btnContent) {
     if (!isNaN(btnContent)) {
-        if (inputDisplay.value === "0" || inputDisplay.value === "3.1415926536") {
+        if (inputDisplay.value === "0" || inputDisplay.value === "3.1415926536" || secondNumber !== null) {
+            firstNumber = result;
+            secondNumber = null;
             inputDisplay.value = btnContent;
         } else {
             inputDisplay.value += btnContent;
@@ -56,6 +59,7 @@ buttons.forEach((btn) => {
 
         if ("+-÷x".includes(btnContent)) {
             firstNumber = Number(inputDisplay.value);
+            console.log(firstNumber);
             operation = btnContent;
             inputDisplay.placeholder = firstNumber;
             inputDisplay.value = "";
@@ -64,16 +68,16 @@ buttons.forEach((btn) => {
         if (btnContent === "=") {
             secondNumber = Number(inputDisplay.value);
             if (operation === "+") {
-                let result = firstNumber + secondNumber;
+                result = firstNumber + secondNumber;
                 inputDisplay.value = result;
             } else if (operation === "-") {
-                let result = firstNumber - secondNumber;
+                result = firstNumber - secondNumber;
                 inputDisplay.value = result;
             } else if (operation === "x") {
-                let result = firstNumber * secondNumber;
+                result = firstNumber * secondNumber;
                 inputDisplay.value = result;
             } else if (operation === "÷") {
-                let result = firstNumber / secondNumber;
+                result = firstNumber / secondNumber;
                 inputDisplay.value = result;
             }
         }
