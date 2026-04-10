@@ -22,8 +22,10 @@ function numbersButtons(btnContent) {
             firstNumber = result;
             secondNumber = null;
             inputDisplay.value = btnContent;
+            clearBtn.textContent = "CE";
         } else {
             inputDisplay.value += btnContent;
+            clearBtn.textContent = "CE";
         };
     };
 };
@@ -41,6 +43,7 @@ function clearButton(btn) {
         firstNumber = null;
         secondNumber = null;
         operation = null;
+        clearBtn.textContent = "AC"
     };
 };
 
@@ -80,7 +83,6 @@ buttons.forEach((btn) => {
                 inputDisplay.value = result;
             }
         }
-
 
         clearButton(btn);
         piButton(btnContent);
