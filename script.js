@@ -7,6 +7,10 @@ const clearBtn = document.getElementById("clear-btn");
 
 const pi = "3.1415926536";
 
+function preventKeyboardInput(event) {
+    event.preventDefault();
+};
+
 function numbersButtons(btnContent) {
     if (!isNaN(btnContent)) {
         if (inputDisplay.value === "0" || inputDisplay.value === "3.1415926536") {
@@ -16,6 +20,7 @@ function numbersButtons(btnContent) {
         }
     }
 };
+
 
 function piButton(btnContent) {
     if (btnContent === "π") {
