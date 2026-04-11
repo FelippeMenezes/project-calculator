@@ -205,10 +205,12 @@ function clearButton(btnId) {
 };
 
 buttons.forEach((btn) => {
-    btn.addEventListener("mousedown", playMouseDownSound);
-    btn.addEventListener("touchstart", (e) => { playMouseDownSound(); }, {passive: true});
-    btn.addEventListener("mouseup", playMouseUpSound);
-    btn.addEventListener("touchend", (e) => { playMouseUpSound(); }, {passive: true});
+    btn.addEventListener("mousedown", () => {
+        playMouseDownSound();
+    });
+    btn.addEventListener("mouseup", () => {
+        playMouseUpSound();
+    });
 
     btn.addEventListener("click", () => {
         const btnId = btn.id;
