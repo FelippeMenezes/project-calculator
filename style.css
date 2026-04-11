@@ -13,6 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100dvh;
     padding: 10px;
 }
@@ -136,4 +137,11 @@ body {
     vertical-align: super;
     font-size: smaller;
     line-height: normal;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #a0a0a0;
+    text-align: center;
 }
