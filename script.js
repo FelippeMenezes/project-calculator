@@ -138,6 +138,22 @@ function memoryAdd() {
     inputDisplay.value = memory + inputDisplay.value;
 };
 
+function round2() {
+    const value = Number(inputDisplay.value);
+    if (isNaN(value)) return;
+
+    const rounded = value.toFixed(2);
+    inputDisplay.value = rounded;
+    result = Number(rounded);
+};
+
+function round0() {
+    const value = Number(inputDisplay.value);
+    const rounded = Math.round(value);
+    inputDisplay.value = rounded;
+    result = rounded;
+};
+
 function operate(btnId) {
     if (btnId === "=") {
 
@@ -219,6 +235,12 @@ buttons.forEach((btn) => {
         };
         if (btnId === "m+") {
             return memoryAdd();
+        };
+        if (btnId === "r2") {
+            return round2();
+        };
+        if (btnId === "r0") {
+            return round0();
         };
 
         clearButton(btnId);
