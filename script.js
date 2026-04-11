@@ -205,7 +205,6 @@ function clearButton(btnId) {
 };
 
 buttons.forEach((btn) => {
-    // Melhora a compatibilidade de áudio para mobile
     btn.addEventListener("mousedown", playMouseDownSound);
     btn.addEventListener("touchstart", (e) => { playMouseDownSound(); }, {passive: true});
     btn.addEventListener("mouseup", playMouseUpSound);
