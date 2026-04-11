@@ -173,15 +173,6 @@ function operate(btnId) {
         firstNumber = result;
         operation = null;
         secondNumber = null;
-
-    } else if (operation === "mc") {
-        memoryClear();
-    } else if (operation === "mr") {
-        memoryRecall();
-    } else if (operation === "m-") {
-        memorySubtraction();
-    } else if (operation === "m+") {
-        memoryAdd();
     };
 };
 
@@ -215,6 +206,18 @@ buttons.forEach((btn) => {
         };
         if (btnId === "+/-") {
             return plusMinus();
+        };
+        if (btnId === "mc") {
+            return memoryClear();
+        };
+        if (btnId === "mr") {
+            return memoryRecall();
+        };
+        if (btnId === "m-") {
+            return memorySubtraction();
+        };
+        if (btnId === "m+") {
+            return memoryAdd();
         };
 
         clearButton(btnId);
