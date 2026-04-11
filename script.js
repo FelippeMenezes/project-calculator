@@ -7,7 +7,7 @@ const clearBtn = document.getElementById("clear-btn");
 
 const pi = "3.1415926536";
 
-const operationsArray = [ "+", "-", "÷", "*", "xy", "√x", "%", "+/-"];
+const operationsArray = [ "+", "-", "÷", "*", "xy"];
 
 let firstNumber = null;
 let operation = null;
@@ -38,7 +38,7 @@ function piButton(btnId) {
 };
 
 function numbersButtons(btnId) {
-    if (!isNaN(btnId)) {
+    if (!isNaN(btnId) || btnId === ".") {
         if (inputDisplay.value === "0" || inputDisplay.value === "3.1415926536" || secondNumber !== null) {
             secondNumber = null;
             inputDisplay.value = btnId;
@@ -90,8 +90,23 @@ function squareRoot() {
 };
 
 function percentage() {
-    result = Number(inputDisplay.value) / 100;
-    inputDisplay.value = result;
+    const currentValue = Number(inputDisplay.value);
+
+    if (firstNumber !== null && operation !== null) {
+
+        if (operation === "+" || operation === "-") {
+            secondNumber = firstNumber * (currentValue / 100);
+        } else if (operation === "*") {
+            secondNumber = currentValue / 100;
+        } else if (operation === "÷") {
+            secondNumber = currentValue / 100;
+        };
+
+        inputDisplay.value = secondNumber;
+    } else {
+        result = currentValue / 100;
+        inputDisplay.value = result;
+    };
 };
 
 function plusMinus() {
@@ -118,7 +133,6 @@ function memoryAdd() {
 function operate(btnId) {
     if (btnId === "=") {
 
-        // 🔁 CASO: repetindo "="
         if (operation === null && lastOperation !== null) {
             if (lastOperation === "+") {
                 result = firstNumber + lastSecondNumber;
@@ -130,14 +144,13 @@ function operate(btnId) {
                 result = firstNumber / lastSecondNumber;
             } else if (lastOperation === "xy") {
                 result = firstNumber ** lastSecondNumber;
-            }
+            };
 
             inputDisplay.value = result;
             firstNumber = result;
             return;
-        }
+        };
 
-        // 🧠 cálculo normal
         if (operation === null) return;
 
         secondNumber = Number(inputDisplay.value);
@@ -152,7 +165,7 @@ function operate(btnId) {
             division();
         } else if (operation === "xy") {
             exponecial();
-        }
+        };
 
         lastOperation = operation;
         lastSecondNumber = secondNumber;
