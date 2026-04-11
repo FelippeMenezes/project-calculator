@@ -4,7 +4,8 @@ A web-based calculator featuring core arithmetic operations, input validation, a
 ## 🚀 Live Demo
 [View the Live Preview here](https://felippemenezes.github.io/project-calculator/)
 
-![Calculator Screenshot](caminho/da/imagem.png)
+## 🚀 Preview
+<img src="./assets/calculator.png" width="400"/>
 
 ## 🛠️ Technologies Used
 *   **HTML5:** Structural foundation of the calculator.
