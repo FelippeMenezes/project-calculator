@@ -9,6 +9,14 @@ const pi = "3.1415926536";
 
 const operationsArray = [ "+", "-", "÷", "*", "xy"];
 
+const operations = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
+    "*": (a, b) => a * b,
+    "÷": (a, b) => a / b,
+    "xy": (a, b) => a ** b
+};
+
 let firstNumber = null;
 let operation = null;
 let secondNumber = null;
@@ -155,17 +163,10 @@ function operate(btnId) {
 
         secondNumber = Number(inputDisplay.value);
 
-        if (operation === "+") {
-            sum();
-        } else if (operation === "-") {
-            subtracion();
-        } else if (operation === "*") {
-            multiply();
-        } else if (operation === "÷") {
-            division();
-        } else if (operation === "xy") {
-            exponecial();
-        };
+        if (operations[operation]) {
+            result = operations[operation](firstNumber, secondNumber);
+            inputDisplay.value = result;
+        }
 
         lastOperation = operation;
         lastSecondNumber = secondNumber;
