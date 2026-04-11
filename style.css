@@ -96,6 +96,7 @@ body {
     width: calc(25% - 6px);
     height: 60px;
     background-color: orange;
+    color: #E6E6E6;
     font-weight: bold;
     border-radius: 5px;
     font-size: 28px;
@@ -111,6 +112,7 @@ body {
     width: calc(25% - 6px);
     height: 60px;
     background-color: orange;
+    color: #E6E6E6;
     font-weight: bold;
     border-radius: 5px;
     font-size: 28px;
