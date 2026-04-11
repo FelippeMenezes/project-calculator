@@ -127,6 +127,11 @@ body {
     cursor: pointer;
 }
 
+#pi, #xy, #r2, #r0 {
+    background-color: #292929;
+    color: #E6E6E6;
+}
+
 .exponent {
     vertical-align: super;
     font-size: smaller;
