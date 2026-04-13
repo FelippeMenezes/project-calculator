@@ -5,7 +5,7 @@ A web-based calculator featuring core arithmetic operations, input validation, a
 [View the Live Preview here](https://felippemenezes.github.io/project-calculator/)
 
 ## 📷 Preview
-<img src="./images/calculator.png" width="200"/>
+<img src="./images/calc.png" width="200"/>
 
 ## 🛠️ Technologies Used
 *   **HTML5:** Structural foundation of the calculator.
