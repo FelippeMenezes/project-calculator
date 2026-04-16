@@ -1,4 +1,4 @@
-# project-calculator
+# 🖩 project-calculator
 A web-based calculator featuring core arithmetic operations, input validation, and real-time display updates. Built with a focus on clean logic and UI interaction without using `eval()`. Part of The Odin Project journey.
 
 ## 🚀 Live Demo
