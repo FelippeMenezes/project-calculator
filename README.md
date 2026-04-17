@@ -38,4 +38,4 @@ During this project, I reinforced my knowledge of:
 *   **Mathematical Logic:** Implementing context-aware percentage calculations and precision handling.
 
 ## 📄 Acknowledgments
-*   Project inspired by The Odin Project - Calculator Assignment.
+*   Project inspired by [The Odin Project](https://www.theodinproject.com/) - [Calculator Assignment.](https://www.theodinproject.com/lessons/foundations-calculator)
